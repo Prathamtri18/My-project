@@ -1,0 +1,745 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pune Jersey Hub | Football Jerseys</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f6f8;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #111827;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ef4444;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover {
+            color: #ef4444;
+        }
+
+        .cart {
+            background: #ef4444;
+            padding: 9px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 480px;
+            padding: 80px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(120deg, #111827, #1f2937);
+            color: white;
+        }
+
+        .hero-text {
+            max-width: 580px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ef4444;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #ef4444;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #dc2626;
+        }
+
+        .hero-jersey {
+            font-size: 180px;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 35px 7%;
+            background: white;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature h3 {
+            margin: 10px 0;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* STORE */
+        .store {
+            padding: 60px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* SEARCH */
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto 25px;
+            display: flex;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px 0 0 6px;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 14px 20px;
+            background: #111827;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* FILTERS */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 9px 18px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #ef4444;
+            color: white;
+            border-color: #ef4444;
+        }
+
+        /* PRODUCTS */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-6px);
+        }
+
+        .product-image {
+            height: 260px;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .add-cart {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            background: #111827;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-cart:hover {
+            background: #ef4444;
+        }
+
+        /* PUNE DELIVERY */
+        .delivery {
+            margin: 50px 7%;
+            padding: 45px;
+            background: #111827;
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .delivery h2 {
+            margin-bottom: 15px;
+        }
+
+        .delivery p {
+            color: #d1d5db;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0b1120;
+            color: white;
+            padding: 45px 7%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #9ca3af;
+            line-height: 1.7;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #374151;
+            margin-top: 30px;
+            padding-top: 20px;
+            color: #9ca3af;
+        }
+
+        /* MOBILE */
+        @media(max-width: 900px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-jersey {
+                font-size: 100px;
+            }
+        }
+
+        @media(max-width: 600px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                text-align: center;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .delivery {
+                margin: 30px 5%;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">PUNE<span>JERSEY</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#store">Shop</a></li>
+            <li><a href="#delivery">Delivery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="cart">
+            🛒 Cart <span id="cart-count">0</span>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <h1>Wear Your <span>Passion.</span></h1>
+
+            <p>
+                Premium football jerseys delivered across Pune.
+                Get jerseys of your favourite clubs, national teams
+                and football legends.
+            </p>
+
+            <a href="#store" class="btn">Shop Jerseys</a>
+        </div>
+
+        <div class="hero-jersey">
+            ⚽👕
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features">
+
+        <div class="feature">
+            <div style="font-size:35px;">🚚</div>
+            <h3>Fast Pune Delivery</h3>
+            <p>Quick delivery across Pune and nearby areas.</p>
+        </div>
+
+        <div class="feature">
+            <div style="font-size:35px;">👕</div>
+            <h3>Premium Jerseys</h3>
+            <p>Club, national team and custom football jerseys.</p>
+        </div>
+
+        <div class="feature">
+            <div style="font-size:35px;">🔒</div>
+            <h3>Secure Shopping</h3>
+            <p>Safe and convenient online ordering.</p>
+        </div>
+
+    </section>
+
+
+    <!-- STORE -->
+    <section class="store" id="store">
+
+        <div class="section-title">
+            <h2>Popular Jerseys</h2>
+            <p>Choose your team and represent your colours.</p>
+        </div>
+
+
+        <!-- SEARCH -->
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search jerseys..."
+                onkeyup="searchProducts()"
+            >
+            <button>Search</button>
+        </div>
+
+
+        <!-- FILTERS -->
+        <div class="filters">
+
+            <button class="filter-btn active"
+                onclick="filterProducts('all', this)">
+                All
+            </button>
+
+            <button class="filter-btn"
+                onclick="filterProducts('club', this)">
+                Clubs
+            </button>
+
+            <button class="filter-btn"
+                onclick="filterProducts('national', this)">
+                National Teams
+            </button>
+
+            <button class="filter-btn"
+                onclick="filterProducts('legend', this)">
+                Legends
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+        <div class="products" id="productGrid">
+
+            <div class="product" data-category="club" data-name="Barcelona Home Jersey">
+                <div class="product-image">🔵🔴👕</div>
+
+                <div class="product-info">
+                    <h3>Barcelona Home Jersey</h3>
+                    <p>2026/27 Home Edition</p>
+                    <div class="price">₹1,499</div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Barcelona Home Jersey')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="product" data-category="club" data-name="Real Madrid Jersey">
+                <div class="product-image">⚪👕</div>
+
+                <div class="product-info">
+                    <h3>Real Madrid Jersey</h3>
+                    <p>2026/27 Home Edition</p>
+                    <div class="price">₹1,499</div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Real Madrid Jersey')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="product" data-category="club" data-name="Manchester United Jersey">
+                <div class="product-image">🔴👕</div>
+
+                <div class="product-info">
+                    <h3>Manchester United Jersey</h3>
+                    <p>2026/27 Home Edition</p>
+                    <div class="price">₹1,399</div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Manchester United Jersey')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="product" data-category="club" data-name="Manchester City Jersey">
+                <div class="product-image">🔵👕</div>
+
+                <div class="product-info">
+                    <h3>Manchester City Jersey</h3>
+                    <p>2026/27 Home Edition</p>
+                    <div class="price">₹1,399</div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Manchester City Jersey')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="product" data-category="national" data-name="Brazil Jersey">
+                <div class="product-image">🇧🇷👕</div>
+
+                <div class="product-info">
+                    <h3>Brazil Jersey</h3>
+                    <p>National Team Edition</p>
+                    <div class="price">₹1,299</div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Brazil Jersey')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="product" data-category="national" data-name="Argentina Jersey">
+                <div class="product-image">🇦🇷👕</div>
+
+                <div class="product-info">
+                    <h3>Argentina Jersey</h3>
+                    <p>National Team Edition</p>
+                    <div class="price">₹1,299</div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Argentina Jersey')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="product" data-category="national" data-name="Portugal Jersey">
+                <div class="product-image">🇵🇹👕</div>
+
+                <div class="product-info">
+                    <h3>Portugal Jersey</h3>
+                    <p>National Team Edition</p>
+                    <div class="price">₹1,299</div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Portugal Jersey')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="product" data-category="legend" data-name="Messi Legend Jersey">
+                <div class="product-image">⭐👕</div>
+
+                <div class="product-info">
+                    <h3>Messi Legend Jersey</h3>
+                    <p>Classic Edition</p>
+                    <div class="price">₹1,599</div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Messi Legend Jersey')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DELIVERY -->
+    <section class="delivery" id="delivery">
+
+        <h2>🚚 Pune Delivery Available</h2>
+
+        <p>
+            We deliver jerseys across Pune including
+            Baner, Wakad, Hinjewadi, Kothrud, Viman Nagar,
+            Hadapsar, Koregaon Park, Aundh and nearby areas.
+        </p>
+
+        <br>
+
+        <p>
+            Orders above ₹1,999 qualify for free delivery.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer id="contact">
+
+        <div class="footer-content">
+
+            <div>
+                <h3>Pune Jersey</h3>
+
+                <p>
+                    Your local destination for football jerseys
+                    and fan merchandise in Pune.
+                </p>
+            </div>
+
+            <div>
+                <h3>Shop</h3>
+
+                <p>Club Jerseys</p>
+                <p>National Team Jerseys</p>
+                <p>Legend Jerseys</p>
+                <p>Custom Jerseys</p>
+            </div>
+
+            <div>
+                <h3>Contact</h3>
+
+                <p>📍 Pune, Maharashtra</p>
+                <p>📞 +91 98765 43210</p>
+                <p>📧 support@punejersey.com</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Pune Jersey. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        let cartCount = 0;
+
+        // ADD TO CART
+        function addToCart(productName) {
+
+            cartCount++;
+
+            document.getElementById("cart-count").innerText = cartCount;
+
+            alert(productName + " added to cart!");
+        }
+
+
+        // FILTER PRODUCTS
+        function filterProducts(category, button) {
+
+            let products = document.querySelectorAll(".product");
+
+            products.forEach(product => {
+
+                if (category === "all" ||
+                    product.dataset.category === category) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+                }
+            });
+
+
+            // Active button
+            document.querySelectorAll(".filter-btn")
+                .forEach(btn => btn.classList.remove("active"));
+
+            button.classList.add("active");
+        }
+
+
+        // SEARCH PRODUCTS
+        function searchProducts() {
+
+            let search =
+                document.getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+            let products =
+                document.querySelectorAll(".product");
+
+            products.forEach(product => {
+
+                let name =
+                    product.dataset.name.toLowerCase();
+
+                if (name.includes(search)) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+                }
+            });
+        }
+
+    </script>
+
+</body>
+</html>
+```
